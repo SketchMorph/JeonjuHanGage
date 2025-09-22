@@ -1,46 +1,29 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-// ✅ 다국어 JSON import
-import enDict from "@/locales/en.json";
-import koDict from "@/locales/ko.json";
-import frDict from "@/locales/fr.json";
-import jaDict from "@/locales/ja.json";
-import zhDict from "@/locales/zh.json";
-
-const dictionaries = {
-  en: enDict,
-  ko: koDict,
-  fr: frDict,
-  ja: jaDict,
-  zh: zhDict,
-};
-
-// ✅ fallback-safe deep merge (언어별 JSON 일부 키가 빠져도 한국어 기본값으로 채워줌)
-function deepMerge(base, override) {
-  const output = { ...base };
-  for (const key in override) {
-    if (
-      typeof override[key] === "object" &&
-      override[key] !== null &&
-      !Array.isArray(override[key])
-    ) {
-      output[key] = deepMerge(base[key] || {}, override[key]);
-    } else {
-      output[key] = override[key];
-    }
-  }
-  return output;
-}
-
 export default function HanbokLanding({ lang = "ko" }) {
-  const baseDict = dictionaries["ko"];
-  const dict = deepMerge(baseDict, dictionaries[lang] || {});
+  const [dict, setDict] = useState(null);
 
-  // ✅ 룩북 카드
+  // ✅ JSON fetch (public/locales/ko.json 등에서 불러오기)
+  useEffect(() => {
+    async function loadDict() {
+      try {
+        const res = await fetch(`/locales/${lang}.json`);
+        const data = await res.json();
+        setDict(data);
+      } catch (err) {
+        console.error("❌ locale load error:", err);
+      }
+    }
+    loadDict();
+  }, [lang]);
+
+  if (!dict) return <div className="p-10 text-center">Loading...</div>;
+
+  // ✅ Lookbook cards
   const LOOKBOOK_ITEMS = Array.from({ length: 6 }, (_, i) => ({
     id: i + 1,
     img: `/lookbooks/look${i + 1}.jpg`,
@@ -51,10 +34,7 @@ export default function HanbokLanding({ lang = "ko" }) {
     <div className="min-h-screen w-full bg-white text-gray-900">
       <Helmet>
         <title>{dict.hero?.headline || "한가게"}</title>
-        <meta
-          name="description"
-          content={dict.hero?.subtext || "생활한복 전문점"}
-        />
+        <meta name="description" content={dict.hero?.subtext || ""} />
       </Helmet>
 
       {/* Hero */}
@@ -104,10 +84,7 @@ export default function HanbokLanding({ lang = "ko" }) {
       </section>
 
       {/* Lookbook */}
-      <section
-        id="lookbook"
-        className="max-w-7xl mx-auto px-6 md:px-12 py-20"
-      >
+      <section id="lookbook" className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         <h2 className="text-3xl font-semibold mb-12">{dict.lookbook?.title}</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {LOOKBOOK_ITEMS.map((item) => (
@@ -131,34 +108,14 @@ export default function HanbokLanding({ lang = "ko" }) {
           {dict.story?.title}
         </h2>
 
-        {dict.story?.story?.map((paragraph, idx) => {
-          if (idx === 0) {
-            return (
-              <blockquote
-                key={idx}
-                className="italic text-2xl text-sky-700 text-center"
-              >
-                “{paragraph}”
-              </blockquote>
-            );
-          }
-
-          return (
-            <div
-              key={idx}
-              className={`grid md:grid-cols-2 gap-10 items-center ${
-                idx % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              <p className="text-lg leading-relaxed">{paragraph}</p>
-              <img
-                src={`/brand/brand${(idx % 3) + 1}.jpg`}
-                alt={`Brand ${idx + 1}`}
-                className="rounded-2xl shadow-lg"
-              />
-            </div>
-          );
-        })}
+        {dict.story?.story?.map((paragraph, idx) => (
+          <p
+            key={idx}
+            className="text-lg leading-relaxed text-gray-800 max-w-3xl mx-auto text-center"
+          >
+            {paragraph}
+          </p>
+        ))}
       </section>
 
       {/* Store Links */}
@@ -170,10 +127,7 @@ export default function HanbokLanding({ lang = "ko" }) {
               {dict.hero?.ctaCafe24}
             </Button>
           </a>
-          <a
-            href="https://smartstore.naver.com/hangagye"
-            target="_blank"
-          >
+          <a href="https://smartstore.naver.com/hangagye" target="_blank">
             <Button className="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-full">
               {dict.hero?.ctaSmartstore}
             </Button>
@@ -187,9 +141,7 @@ export default function HanbokLanding({ lang = "ko" }) {
         className="max-w-6xl mx-auto px-6 md:px-12 py-20 grid md:grid-cols-2 gap-10"
       >
         <div>
-          <h2 className="text-3xl font-semibold mb-6">
-            {dict.store?.title}
-          </h2>
+          <h2 className="text-3xl font-semibold mb-6">{dict.store?.title}</h2>
           <p className="text-lg text-gray-600 whitespace-pre-line">
             {dict.store?.address}
           </p>
@@ -211,9 +163,7 @@ export default function HanbokLanding({ lang = "ko" }) {
           <h2 className="text-3xl font-semibold mb-4">
             {dict.newsletter?.title}
           </h2>
-          <p className="mb-6 text-blue-100">
-            {dict.newsletter?.subtitle}
-          </p>
+          <p className="mb-6 text-blue-100">{dict.newsletter?.subtitle}</p>
           <div className="flex gap-3 justify-center">
             <Input
               type="email"
@@ -229,9 +179,7 @@ export default function HanbokLanding({ lang = "ko" }) {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12 mt-20 text-center">
-        <div className="text-sm text-gray-500">
-          {dict.footer?.text}
-        </div>
+        <div className="text-sm text-gray-500">{dict.footer?.text}</div>
       </footer>
     </div>
   );
