@@ -1,28 +1,23 @@
 "use client";
 import React from "react";
+import clsx from "clsx";
 
-export function Button({
-  children,
-  className = "",
-  variant = "primary",
-  ...props
-}) {
-  const base =
-    "inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium tracking-wide transition focus:outline-none focus:ring-2 focus:ring-offset-2";
+export function Button({ children, variant = "primary", className, ...props }) {
+  const baseStyles =
+    "px-5 py-2 rounded-full font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2";
 
   const variants = {
-    primary:
-      "bg-blue-900 text-white hover:bg-blue-800 focus:ring-blue-500 shadow",
+    primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
     secondary:
-      "bg-white border border-gray-300 text-gray-800 hover:bg-gray-100 focus:ring-gray-400",
+      "bg-white text-blue-600 border border-blue-600 hover:bg-blue-50 focus:ring-blue-400",
     accent:
-      "bg-sky-100 text-blue-900 hover:bg-sky-200 focus:ring-sky-300",
+      "bg-indigo-700 text-white hover:bg-indigo-800 focus:ring-indigo-500",
   };
 
   return (
     <button
+      className={clsx(baseStyles, variants[variant], className)}
       {...props}
-      className={`${base} ${variants[variant]} ${className}`}
     >
       {children}
     </button>
