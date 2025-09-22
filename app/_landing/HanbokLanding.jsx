@@ -84,12 +84,12 @@ export default function HanbokLanding({ lang = "ko" }) {
           {LOOKBOOK_ITEMS.map((item) => (
             <div
               key={item.id}
-              className="overflow-hidden rounded-2xl shadow-md bg-gray-100"
+              className="overflow-hidden rounded-2xl shadow-md bg-gray-100 flex items-center justify-center"
             >
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full aspect-[3/4] object-cover transition duration-700 hover:scale-105 hover:opacity-90"
+                className="w-full max-h-[600px] aspect-[3/4] object-contain transition duration-700 hover:scale-105 hover:opacity-90"
               />
             </div>
           ))}
@@ -116,7 +116,7 @@ export default function HanbokLanding({ lang = "ko" }) {
               <img
                 src={`/brand/brand${(idx % 3) + 1}.jpg`}
                 alt={`brand story ${idx + 1}`}
-                className="rounded-xl shadow-lg object-cover aspect-[4/3]"
+                className="rounded-xl shadow-lg object-cover aspect-[4/3] max-h-[500px]"
               />
             </div>
           ))}
