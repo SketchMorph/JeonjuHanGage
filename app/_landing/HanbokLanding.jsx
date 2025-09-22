@@ -31,7 +31,7 @@ export default function HanbokLanding({ lang = "ko" }) {
   }));
 
   return (
-    <div className="min-h-screen w-full bg-white text-gray-900">
+    <div className="min-h-screen w-full bg-exhibition-light text-gray-900 font-sans">
       <Helmet>
         <title>{dict.hero?.headline || "한가게"}</title>
         <meta name="description" content={dict.hero?.subtext || ""} />
@@ -44,7 +44,7 @@ export default function HanbokLanding({ lang = "ko" }) {
           alt="hero"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
         <div className="absolute left-12 bottom-20 text-white max-w-xl">
           <h1 className="text-5xl font-serif font-light leading-snug whitespace-pre-line drop-shadow-lg">
             {dict.hero?.headline}
@@ -76,7 +76,10 @@ export default function HanbokLanding({ lang = "ko" }) {
       </section>
 
       {/* Lookbook */}
-      <section id="lookbook" className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+      <section
+        id="lookbook"
+        className="max-w-7xl mx-auto px-6 md:px-12 py-24 bg-white"
+      >
         <h2 className="text-4xl font-serif text-center text-gray-800 mb-16">
           {dict.lookbook?.title}
         </h2>
@@ -97,7 +100,7 @@ export default function HanbokLanding({ lang = "ko" }) {
       </section>
 
       {/* Brand Story */}
-      <section className="bg-sky-50 py-24">
+      <section className="bg-exhibition-sky py-24">
         <div className="max-w-6xl mx-auto px-6 space-y-20">
           <h2 className="text-4xl font-serif text-center text-gray-800">
             {dict.story?.title}
@@ -116,7 +119,7 @@ export default function HanbokLanding({ lang = "ko" }) {
               <img
                 src={`/brand/brand${(idx % 3) + 1}.jpg`}
                 alt={`brand story ${idx + 1}`}
-                className="rounded-xl shadow-lg object-cover aspect-[4/3] max-h-[500px]"
+                className="rounded-xl shadow-soft object-cover aspect-[4/3] max-h-[500px]"
               />
             </div>
           ))}
@@ -151,7 +154,7 @@ export default function HanbokLanding({ lang = "ko" }) {
           <p className="mt-2 text-gray-600">📱 {dict.store?.phone}</p>
           <p className="mt-1 text-gray-600">📧 {dict.store?.email}</p>
         </div>
-        <div className="rounded-2xl overflow-hidden shadow-lg">
+        <div className="rounded-2xl overflow-hidden shadow-soft">
           <iframe
             src="https://naver.me/GA8LhINb"
             className="w-full h-64"
@@ -161,12 +164,14 @@ export default function HanbokLanding({ lang = "ko" }) {
       </section>
 
       {/* Newsletter */}
-      <section className="bg-blue-900 text-white py-20">
+      <section className="bg-exhibition-blue text-white py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-serif mb-4">
             {dict.newsletter?.title}
           </h2>
-          <p className="mb-6 text-blue-100">{dict.newsletter?.subtitle}</p>
+          <p className="mb-6 text-exhibition-sky">
+            {dict.newsletter?.subtitle}
+          </p>
           <div className="flex gap-3 justify-center">
             <Input
               type="email"
