@@ -12,11 +12,11 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-blue-900 text-white hover:bg-blue-800 focus:ring-blue-500 shadow-sm hover:shadow-lg",
+      "bg-exhibition-blue text-white hover:bg-blue-800 focus:ring-exhibition-blue shadow-soft",
     secondary:
       "bg-white border border-gray-300 text-gray-800 hover:bg-gray-50 focus:ring-gray-400",
     accent:
-      "bg-sky-100 text-sky-800 hover:bg-sky-200 focus:ring-sky-300",
+      "bg-exhibition-sky text-exhibition-blue hover:bg-exhibition-accent focus:ring-exhibition-accent",
   };
 
   return (
