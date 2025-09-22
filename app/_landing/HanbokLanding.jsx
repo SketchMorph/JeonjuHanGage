@@ -44,7 +44,7 @@ export default function HanbokLanding({ lang = "ko" }) {
       {/* Hero */}
       <section className="relative w-full h-[80vh] overflow-hidden">
         <img
-          src="/main000.png"
+          src="/main-hero.png"
           alt="hero"
           className="w-full h-full object-cover object-center"
         />
