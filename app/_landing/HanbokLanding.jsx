@@ -130,10 +130,7 @@ export default function HanbokLanding({ lang = "ko" }) {
           <a href="https://alban915.cafe24.com" target="_blank">
             <Button variant="primary">{dict.hero?.ctaCafe24}</Button>
           </a>
-          <a
-            href="https://smartstore.naver.com/hangagye"
-            target="_blank"
-          >
+          <a href="https://smartstore.naver.com/hangagye" target="_blank">
             <Button variant="secondary">{dict.hero?.ctaSmartstore}</Button>
           </a>
         </div>
