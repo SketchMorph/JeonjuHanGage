@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "headline": "我们的服装店\n韩风明亮商店",
+    "subtext": "现代感与传统之美的融合",
+    "ctaLookbook": "查看画册",
+    "ctaSmartstore": "智能商店",
+    "ctaCafe24": "官方商城",
+    "ctaContact": "联系我们"
+  },
+  "lookbook": {
+    "title": "画册"
+  },
+  "story": {
+    "title": "品牌故事",
+    "story": [
+      "衣服中承载着人。",
+      "我们制作的衣服不仅仅是穿着，它是穿着者和观者共同展现自我身份的开始。",
+      "这种开始是最美的自我表达方式，而这些色彩汇聚在一起，最终成为个人与共同体共享的文化。",
+      "HanGage 不做快时尚，也不是资本驱动的复制品，而是承载着各国和个人独特色彩与故事的服饰。"
+    ]
+  },
+  "store": {
+    "title": "店铺信息",
+    "address": "全罗北道 全州市 完山区 太平3路70号 中央商街 2层 206, 207号",
+    "phone": "+82 10-7309-2547",
+    "email": "efun36@naver.com"
+  },
+  "newsletter": {
+    "title": "订阅",
+    "subtitle": "第一时间接收最新消息和活动。",
+    "placeholder": "请输入邮箱",
+    "button": "订阅"
+  },
+  "footer": {
+    "text": "© 2025 我们的服装店. All rights reserved."
+  }
+}
