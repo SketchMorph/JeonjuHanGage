@@ -11,12 +11,12 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: "#2563eb", // Tailwind blue-600
-          dark: "#1e40af", // blue-800
+          DEFAULT: "#2563eb", // blue-600
+          dark: "#1e40af",    // blue-800
         },
         accent: {
           DEFAULT: "#4338ca", // indigo-700
-          dark: "#312e81", // indigo-900
+          dark: "#312e81",    // indigo-900
         },
       },
     },
