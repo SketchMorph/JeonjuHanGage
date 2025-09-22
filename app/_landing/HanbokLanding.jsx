@@ -49,33 +49,37 @@ export default function HanbokLanding({ lang = "ko" }) {
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 text-center text-white px-6">
-          <h1 className="text-4xl md:text-5xl font-light tracking-wide">
-            {dict.hero?.headline}
-          </h1>
-          <p className="mt-4 text-lg opacity-90">{dict.hero?.subtext}</p>
-          <div className="mt-8 flex justify-center gap-4 flex-wrap">
-            <Button variant="primary">{dict.hero?.ctaProducts}</Button>
 
-            <a
-              href="https://smartstore.naver.com/hangagye"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="secondary">{dict.hero?.ctaSmartstore}</Button>
-            </a>
+        {/* 👉 중앙 수평 왼쪽 정렬 */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="ml-12 text-left text-white max-w-xl">
+            <h1 className="text-4xl md:text-5xl font-light tracking-wide">
+              {dict.hero?.headline}
+            </h1>
+            <p className="mt-4 text-lg opacity-90">{dict.hero?.subtext}</p>
+            <div className="mt-8 flex justify-start gap-4 flex-wrap">
+              <Button variant="primary">{dict.hero?.ctaProducts}</Button>
 
-            <a
-              href="https://alban915.cafe24.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="secondary">{dict.hero?.ctaCafe24}</Button>
-            </a>
+              <a
+                href="https://smartstore.naver.com/hangagye"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary">{dict.hero?.ctaSmartstore}</Button>
+              </a>
 
-            <a href="#contact">
-              <Button variant="accent">{dict.hero?.ctaContact}</Button>
-            </a>
+              <a
+                href="https://alban915.cafe24.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary">{dict.hero?.ctaCafe24}</Button>
+              </a>
+
+              <a href="#contact">
+                <Button variant="accent">{dict.hero?.ctaContact}</Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
