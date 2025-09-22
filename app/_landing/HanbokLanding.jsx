@@ -1,14 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-// ✅ alias 대신 상대 경로 사용
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 
 export default function HanbokLanding({ lang = "ko" }) {
   const [dict, setDict] = useState(null);
 
-  // ✅ JSON fetch (public/locales/ko.json 등에서 불러오기)
+  // ✅ 다국어 JSON fetch
   useEffect(() => {
     async function loadDict() {
       try {
@@ -39,64 +38,58 @@ export default function HanbokLanding({ lang = "ko" }) {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative w-full aspect-[21/9]">
+      <section className="relative w-full h-[70vh] overflow-hidden">
         <img
           src="/main-hero.jpg"
           alt="hero"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
-        <div className="absolute left-16 bottom-20 text-white max-w-xl">
-          <h1 className="text-5xl font-light leading-snug whitespace-pre-line">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+        <div className="absolute left-12 bottom-20 text-white max-w-xl">
+          <h1 className="text-5xl font-serif font-light leading-snug whitespace-pre-line drop-shadow-lg">
             {dict.hero?.headline}
           </h1>
           <p className="mt-4 text-lg opacity-90">{dict.hero?.subtext}</p>
           <div className="mt-8 flex gap-4 flex-wrap">
             <a href="#lookbook">
-              <Button className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-full">
-                {dict.hero?.ctaLookbook}
-              </Button>
+              <Button variant="primary">{dict.hero?.ctaLookbook}</Button>
             </a>
             <a
               href="https://smartstore.naver.com/hangagye"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-full">
-                {dict.hero?.ctaSmartstore}
-              </Button>
+              <Button variant="secondary">{dict.hero?.ctaSmartstore}</Button>
             </a>
             <a
               href="https://alban915.cafe24.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-purple-700 hover:bg-purple-600 text-white px-6 py-3 rounded-full">
-                {dict.hero?.ctaCafe24}
-              </Button>
+              <Button variant="secondary">{dict.hero?.ctaCafe24}</Button>
             </a>
             <a href="#contact">
-              <Button className="bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-3 rounded-full">
-                {dict.hero?.ctaContact}
-              </Button>
+              <Button variant="accent">{dict.hero?.ctaContact}</Button>
             </a>
           </div>
         </div>
       </section>
 
       {/* Lookbook */}
-      <section id="lookbook" className="max-w-7xl mx-auto px-6 md:px-12 py-20">
-        <h2 className="text-3xl font-semibold mb-12">{dict.lookbook?.title}</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <section id="lookbook" className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+        <h2 className="text-4xl font-serif text-center text-gray-800 mb-16">
+          {dict.lookbook?.title}
+        </h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
           {LOOKBOOK_ITEMS.map((item) => (
             <div
               key={item.id}
-              className="overflow-hidden rounded-2xl shadow-lg"
+              className="overflow-hidden rounded-2xl shadow-md bg-gray-100"
             >
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-64 object-cover transition-transform duration-700 hover:scale-105"
+                className="w-full aspect-[3/4] object-cover transition duration-700 hover:scale-105 hover:opacity-90"
               />
             </div>
           ))}
@@ -104,34 +97,44 @@ export default function HanbokLanding({ lang = "ko" }) {
       </section>
 
       {/* Brand Story */}
-      <section className="max-w-6xl mx-auto px-6 py-24 space-y-16">
-        <h2 className="text-4xl font-serif text-center mb-12">
-          {dict.story?.title}
-        </h2>
+      <section className="bg-sky-50 py-24">
+        <div className="max-w-6xl mx-auto px-6 space-y-20">
+          <h2 className="text-4xl font-serif text-center text-gray-800">
+            {dict.story?.title}
+          </h2>
 
-        {dict.story?.story?.map((paragraph, idx) => (
-          <p
-            key={idx}
-            className="text-lg leading-relaxed text-gray-800 max-w-3xl mx-auto text-center"
-          >
-            {paragraph}
-          </p>
-        ))}
+          {dict.story?.story?.map((paragraph, idx) => (
+            <div
+              key={idx}
+              className={`grid md:grid-cols-2 gap-12 items-center ${
+                idx % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              <p className="text-lg font-light text-gray-700 leading-relaxed">
+                {paragraph}
+              </p>
+              <img
+                src={`/brand/brand${(idx % 3) + 1}.jpg`}
+                alt={`brand story ${idx + 1}`}
+                className="rounded-xl shadow-lg object-cover aspect-[4/3]"
+              />
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Store Links */}
-      <section className="text-center py-20 bg-gray-50">
-        <h2 className="text-3xl font-semibold mb-8">Shop</h2>
+      <section className="text-center py-20 bg-white">
+        <h2 className="text-3xl font-serif text-gray-800 mb-8">Shop</h2>
         <div className="flex gap-6 justify-center flex-wrap">
           <a href="https://alban915.cafe24.com" target="_blank">
-            <Button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-full">
-              {dict.hero?.ctaCafe24}
-            </Button>
+            <Button variant="primary">{dict.hero?.ctaCafe24}</Button>
           </a>
-          <a href="https://smartstore.naver.com/hangagye" target="_blank">
-            <Button className="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-full">
-              {dict.hero?.ctaSmartstore}
-            </Button>
+          <a
+            href="https://smartstore.naver.com/hangagye"
+            target="_blank"
+          >
+            <Button variant="secondary">{dict.hero?.ctaSmartstore}</Button>
           </a>
         </div>
       </section>
@@ -139,17 +142,19 @@ export default function HanbokLanding({ lang = "ko" }) {
       {/* Store Info */}
       <section
         id="contact"
-        className="max-w-6xl mx-auto px-6 md:px-12 py-20 grid md:grid-cols-2 gap-10"
+        className="max-w-6xl mx-auto px-6 md:px-12 py-24 grid md:grid-cols-2 gap-12"
       >
         <div>
-          <h2 className="text-3xl font-semibold mb-6">{dict.store?.title}</h2>
+          <h2 className="text-3xl font-serif text-gray-800 mb-6">
+            {dict.store?.title}
+          </h2>
           <p className="text-lg text-gray-600 whitespace-pre-line">
             {dict.store?.address}
           </p>
           <p className="mt-2 text-gray-600">📱 {dict.store?.phone}</p>
           <p className="mt-1 text-gray-600">📧 {dict.store?.email}</p>
         </div>
-        <div className="rounded-2xl overflow-hidden shadow-sm">
+        <div className="rounded-2xl overflow-hidden shadow-lg">
           <iframe
             src="https://naver.me/GA8LhINb"
             className="w-full h-64"
@@ -161,7 +166,7 @@ export default function HanbokLanding({ lang = "ko" }) {
       {/* Newsletter */}
       <section className="bg-blue-900 text-white py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-4">
+          <h2 className="text-3xl font-serif mb-4">
             {dict.newsletter?.title}
           </h2>
           <p className="mb-6 text-blue-100">{dict.newsletter?.subtitle}</p>
@@ -171,9 +176,7 @@ export default function HanbokLanding({ lang = "ko" }) {
               placeholder={dict.newsletter?.placeholder}
               className="rounded-full px-4 py-3 text-black w-64"
             />
-            <Button className="rounded-full bg-white text-blue-900 px-6 py-3 hover:bg-blue-100">
-              {dict.newsletter?.button}
-            </Button>
+            <Button variant="accent">{dict.newsletter?.button}</Button>
           </div>
         </div>
       </section>
