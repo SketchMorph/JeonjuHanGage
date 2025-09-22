@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "headline": "Notre Boutique de Vêtements\nHanStyle, une boutique lumineuse",
+    "subtext": "La sensibilité moderne rencontre la beauté intemporelle de la tradition",
+    "ctaLookbook": "Voir le Lookbook",
+    "ctaSmartstore": "Smart Store",
+    "ctaCafe24": "Boutique Officielle",
+    "ctaContact": "Contact"
+  },
+  "lookbook": {
+    "title": "Lookbook"
+  },
+  "story": {
+    "title": "Histoire de la Marque",
+    "story": [
+      "Les vêtements portent les personnes en eux.",
+      "Nos créations ne se limitent pas à être portées : elles deviennent le commencement de l’expression identitaire, à la fois pour celui qui les porte et pour celui qui les regarde.",
+      "Ce commencement est la plus belle manière de s’exprimer, et ces couleurs réunies deviennent une culture partagée par l’individu et la communauté.",
+      "HanGage ne fait pas de fast fashion ni de copies influencées par le capital. Nous créons des vêtements qui portent les couleurs et les histoires uniques de chaque nation et individu."
+    ]
+  },
+  "store": {
+    "title": "Informations du Magasin",
+    "address": "2F, 206-207, Centre Commercial Jungang, 70 Taepyeong 3-gil, Wansan-gu, Jeonju, Jeonbuk",
+    "phone": "+82 10-7309-2547",
+    "email": "efun36@naver.com"
+  },
+  "newsletter": {
+    "title": "S'abonner",
+    "subtitle": "Recevez en premier les nouveautés et événements.",
+    "placeholder": "Entrez votre email",
+    "button": "S'abonner"
+  },
+  "footer": {
+    "text": "© 2025 Notre Boutique de Vêtements. Tous droits réservés."
+  }
+}
