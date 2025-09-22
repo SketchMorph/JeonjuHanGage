@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 👉 기본 전역 스타일 */
+/* 👉 전역 기본 스타일 */
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background-color: #ffffff;
