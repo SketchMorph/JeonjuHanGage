@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+// ✅ alias 대신 상대 경로 사용
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 
 export default function HanbokLanding({ lang = "ko" }) {
   const [dict, setDict] = useState(null);
