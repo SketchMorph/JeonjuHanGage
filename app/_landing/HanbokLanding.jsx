@@ -53,9 +53,9 @@ export default function HanbokLanding({ lang = "ko" }) {
         {/* 👉 수직 가운데 + 왼쪽 정렬 */}
         <div className="absolute inset-0 flex items-center">
           <div className="ml-24 text-left text-white max-w-xl">
-            <h1 className="text-4xl md:text-5xl font-light tracking-wide">
-              {dict.hero?.headline}
-            </h1>
+           <h1 className="text-4xl md:text-5xl font-light tracking-wide leading-tight whitespace-pre-line">
+  {dict.hero?.headline}
+</h1>
             <p className="mt-4 text-lg opacity-90">{dict.hero?.subtext}</p>
 
             {/* 👉 버튼 3개 (pill 스타일) */}
