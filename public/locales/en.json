@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "headline": "Our Clothing Shop\nHanStyle Bright Store",
+    "subtext": "Modern sensibility meets the timeless beauty of tradition",
+    "ctaLookbook": "View Lookbook",
+    "ctaSmartstore": "Smart Store",
+    "ctaCafe24": "Official Mall",
+    "ctaContact": "Contact Us"
+  },
+  "lookbook": {
+    "title": "Lookbook"
+  },
+  "story": {
+    "title": "Brand Story",
+    "story": [
+      "Clothes carry people within them.",
+      "Our creations go beyond being worn – they become the beginning of expressing one’s identity for both the wearer and the beholder.",
+      "That beginning is the most beautiful way of self-expression, and those colors together weave into a culture shared by individuals and communities.",
+      "HanGage does not create fast fashion or capital-driven replicas. We craft garments that hold the unique colors and stories of each nation and individual."
+    ]
+  },
+  "store": {
+    "title": "Store Information",
+    "address": "2F, 206-207, Jungang Shopping Mall, 70 Taepyeong 3-gil, Wansan-gu, Jeonju, Jeonbuk",
+    "phone": "+82 10-7309-2547",
+    "email": "efun36@naver.com"
+  },
+  "newsletter": {
+    "title": "Subscribe",
+    "subtitle": "Be the first to receive new updates and events.",
+    "placeholder": "Enter your email",
+    "button": "Subscribe"
+  },
+  "footer": {
+    "text": "© 2025 Our Clothing Shop. All rights reserved."
+  }
+}
