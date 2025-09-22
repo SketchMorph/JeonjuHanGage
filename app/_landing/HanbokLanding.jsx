@@ -53,9 +53,9 @@ export default function HanbokLanding({ lang = "ko" }) {
         {/* 👉 수직 가운데 + 왼쪽 정렬 */}
         <div className="absolute inset-0 flex items-center">
           <div className="ml-24 text-left text-white max-w-xl">
-           <h1 className="text-4xl md:text-5xl font-light tracking-wide leading-tight whitespace-pre-line">
-  {dict.hero?.headline}
-</h1>
+            <h1 className="text-4xl md:text-5xl font-light tracking-wide leading-tight whitespace-pre-line">
+              {dict.hero?.headline}
+            </h1>
             <p className="mt-4 text-lg opacity-90">{dict.hero?.subtext}</p>
 
             {/* 👉 버튼 3개 (pill 스타일) */}
@@ -161,7 +161,7 @@ export default function HanbokLanding({ lang = "ko" }) {
         })}
       </section>
 
-      {/* Store Info */}
+      {/* Store Info + SNS */}
       <section
         id="contact"
         className="max-w-6xl mx-auto px-6 md:px-12 py-20 grid md:grid-cols-2 gap-10"
@@ -174,7 +174,41 @@ export default function HanbokLanding({ lang = "ko" }) {
           <p className="mt-2 text-gray-600">📧 {dict.store?.email}</p>
           <p className="mt-1 text-gray-600">📱 {dict.store?.phone}</p>
           <p className="mt-1 text-gray-600">☎ {dict.store?.storePhone}</p>
+
+          {/* SNS Links */}
+          <div className="mt-6 space-y-4">
+            <a
+              href="https://www.instagram.com/hangagye"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-pink-500 text-white px-5 py-2 rounded-full hover:bg-pink-600 transition"
+            >
+              📸 Instagram
+            </a>
+
+            <div className="border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+              <a
+                href="https://m.blog.naver.com/efun36"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="bg-green-600 text-white px-4 py-2 font-semibold">
+                  Naver Blog
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-800 font-medium">
+                    어머니의 한스타일 블로그
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    일상과 디자인 이야기 보러가기 →
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
+
         <div className="rounded-2xl overflow-hidden shadow-sm">
           <iframe
             src="https://naver.me/GA8LhINb"
@@ -212,3 +246,4 @@ export default function HanbokLanding({ lang = "ko" }) {
     </div>
   );
 }
+
