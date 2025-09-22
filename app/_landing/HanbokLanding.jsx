@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Link from "next/link";
+
+// ✅ 실제 파일명이 소문자이므로 그대로 맞춰줌
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
