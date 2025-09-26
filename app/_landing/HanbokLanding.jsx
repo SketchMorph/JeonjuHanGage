@@ -175,6 +175,13 @@ export default function HanbokLanding({ lang = "ko" }) {
           <p className="mt-1 text-gray-600">📱 {dict.store?.phone}</p>
           <p className="mt-1 text-gray-600">☎ {dict.store?.storePhone}</p>
 
+          {/* ✅ 추가된 사업자/계좌 정보 */}
+          <div className="mt-4 space-y-1 text-gray-700 text-sm">
+            <p>🏦 계좌번호: 1002-354-304360 (우리은행)</p>
+            <p>🧾 사업자번호: 870-20-01783</p>
+            <p>☎ 가게 전화번호: 063-255-2547</p>
+          </div>
+
           {/* SNS Links */}
           <div className="mt-6 space-y-4">
             <a
@@ -246,4 +253,3 @@ export default function HanbokLanding({ lang = "ko" }) {
     </div>
   );
 }
-
