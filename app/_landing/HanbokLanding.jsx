@@ -173,7 +173,6 @@ export default function HanbokLanding({ lang = "ko" }) {
           </p>
           <p className="mt-2 text-gray-600">📧 {dict.store?.email}</p>
           <p className="mt-1 text-gray-600">📱 {dict.store?.phone}</p>
-          <p className="mt-1 text-gray-600">☎ {dict.store?.storePhone}</p>
 
           {/* ✅ 추가된 사업자/계좌 정보 */}
           <div className="mt-4 space-y-1 text-gray-700 text-sm">
@@ -205,7 +204,7 @@ export default function HanbokLanding({ lang = "ko" }) {
                 </div>
                 <div className="p-4 bg-white">
                   <p className="text-gray-800 font-medium">
-                    어머니의 한스타일 블로그
+                    한스타일 블로그
                   </p>
                   <p className="text-sm text-gray-500 mt-1">
                     일상과 디자인 이야기 보러가기 →
